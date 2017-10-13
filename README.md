@@ -1,5 +1,5 @@
 # webpack-postcss-spa-demo
-> 帮周做的
+> 我的个人网站
 ``` bash
 # install dependencies
 npm install
