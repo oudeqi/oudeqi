@@ -1,0 +1,6 @@
+@import '../../components/footer/footer.css';
+@import '../../components/header/header.css';
+
+body{
+	min-width: 320px;
+}

@@ -1,0 +1,89 @@
+@import '../../assets/styles/_variable.css';
+@import '../../assets/styles/_mixins.css';
+@import '../../assets/styles/_extends.css';
+
+.jumbotron{
+	background: #eee url(../../assets/images/banner03.jpg) no-repeat center;
+	background-size: cover;
+	color: #fff;
+	h1{
+		font-size: responsive;
+		lower-font-range: $min_width;
+		upper-font-range: $max_width;
+		min-font-size: 30px;
+		max-font-size: 50px;
+	}
+	a{
+		color: #fff;
+		text-decoration: underline;
+		font-size: responsive;
+		lower-font-range: $min_width;
+		upper-font-range: $max_width;
+		min-font-size: 18px;
+		max-font-size: 22px;
+	}
+}
+
+ul.affixNav{
+	&.affix {
+		top: 30px;
+	}
+	li{
+		border: 1px solid #DDDDDD;
+		overflow: hidden;
+		margin-top: 0px !important;
+		&+li{
+			border-top: 0 none;
+		}
+		&:first-child{
+			border-radius: 4px 4px 0 0;
+		}
+		&:last-child{
+			border-radius: 0 0 4px 4px;
+		}
+		&.active{
+			border: 0 none;
+		}
+		a{
+			border-radius: 0;
+			text-transform: uppercase;
+		}
+	}
+}
+
+.mar-b-20{
+	margin-bottom: 20px;
+}
+
+.content .category{
+	margin-top: 0px;
+	padding: 5px;
+	border-radius: 4px;
+	text-transform: uppercase;
+}
+
+.rela{
+	position: relative;
+	text-align: center;
+	a{
+		color: #666666;
+		text-decoration: none;
+	}
+}
+
+#yd .rela .erweima{
+	box-shadow: 0 0 20px rgba(0,0,0,.5);
+	position: absolute;
+	width: 0;
+	height: auto;
+	z-index: 20;
+	bottom: 50px;
+	left: 50%;
+	margin-left: 0;
+	opacity: .4;
+	border-radius: 2px;
+}
+.rela a span{
+	display: block;
+	padding: 3px;
+}

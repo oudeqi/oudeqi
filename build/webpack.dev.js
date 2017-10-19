@@ -5,7 +5,6 @@ const base = require('./webpack.base.js');
 const PUBLIC_PATH = require('../config').PUBLIC_PATH;
 
 module.exports = merge(base, {
-	devtool: 'eval-source-map',
 	devServer: {
         host: "192.168.0.12",
         contentBase: [path.join(__dirname, 'dist')],
