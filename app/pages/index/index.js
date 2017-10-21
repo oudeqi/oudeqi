@@ -1,7 +1,6 @@
 // __webpack_public_path__ = process.env.PUBLIC_PATH;
 console.log(process.env.PUBLIC_PATH);
 import './index.css';
-import browser from '../../assets/scripts/browser.js';
 
 //当前页面选中
 $('[data-flag="index"]').addClass('active');
@@ -24,46 +23,23 @@ $(window).resize(function(){
 	$('.affixNav').attr('data-offset-top',dataOffsetTop);
 });
 
-if(!browser.versions.android && !browser.versions.iPhone && !browser.versions.iPad){
 
-	$.each($('#yd .rela'), function(index,ele) {
-		var ewmname = $(ele).attr('data-ewm');
-		let src = require('../../assets/images/'+ewmname);
-		$(ele).append('<img src="'+src+'" class="erweima" alt="">');                                    
-	});
-
-	$('#yd').on("click","a",function(e){
-		$('#yd').find('.erweima').stop().animate({
-			"width":"0","opacity":"0.4"
-		},200,function(){
-			$('#yd').find('.erweima').css({"bottom":"50px","margin-left":"0"});
-		});
-		var bottom =$(this).offset().top - $(document).scrollTop();
-		if(bottom > 240){bottom = 240;}else{bottom -= 10;}
-		$(this).siblings('.erweima').stop().animate({"width":"200px","opacity":"1","bottom":bottom,"margin-left":"-100px"},300);
-	});
-	
-	$(window).scroll(function(){
-		$("#yd .erweima").stop().animate({
-			"width":"0","opacity":"0.4"
-		},200,function(){
-			$("#yd .erweima").css({"bottom":"50px","margin-left":"0"});
-		});
-	});
-	
-	$(document).click(function(e){
-		if($(e.target).attr("data-tag") != "trigger"){
-			$("#yd .erweima").stop().animate({
-				"width":"0","opacity":"0.4"
-			},200,function(){
-				$("#yd .erweima").css({"bottom":"50px","margin-left":"0"});
-			});
-		}
-	});
-
-}else{
-	$.each($('#yd .rela .thumbnail'), function(index,ele) {
-		var href = $(ele).attr('data-href');
-		$(ele).attr('href',href);      
-	});
-}
+// 生成列表
+let maps = require('../../data/data.js').default;
+maps.forEach(item => {
+	let domStr=`<div class="col-xs-6 col-sm-6 col-md-4">
+					<a href="./project-detail.html?id=${item.id}" class="thumbnail">
+						<div class="aspect-box" aspect-ratio="16:10">
+							<div class="aspect-box-content">
+								<img src="${item.cover}" alt="...">
+							</div>
+						</div>
+						<span>${item.name}</span>
+				    </a>
+				</div>`;
+	if(item.type === 0){
+		$('#pc .row').append(domStr);
+	}else{
+		$('#yd .row').append(domStr);
+	}
+});

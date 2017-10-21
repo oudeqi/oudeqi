@@ -10,17 +10,13 @@
 	}
 }
 
-.page-header h1{
-	font-size: 30px;
-}
-
 .resume-content{
 	border: 1px solid #EEEEEE;
 	border-top: 0 none;
 	overflow: hidden;
 	.item{
 		padding: 30px 20px;
-		font-size: 15px;
+		/*font-size: 15px;*/
 		border-bottom: 1px dotted #DDDDDD;
 		h2{
 			margin: 0;
@@ -126,9 +122,9 @@
 			}
 		}
 	}
-	.resume-content .item{
+	/*.resume-content .item{
 		font-size: 14px;
-	}
+	}*/
 }
 
 .resume-content {

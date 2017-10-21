@@ -33,6 +33,7 @@
     "html-withimg-loader": "^0.1.16",
     "imagemin-pngquant": "^5.0.1",
     "imports-loader": "^0.7.1",
+    "json5-loader": "^1.0.1",
     "merge-stream": "^1.0.1",
     "postcss-aspect-ratio-mini": "^0.0.2",
     "postcss-assets": "^5.0.0",

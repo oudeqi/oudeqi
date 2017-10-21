@@ -52,16 +52,16 @@ const getHtmlEntry = function(globPath) {
 
 module.exports = {
     devtool: 'source-map',
-    // context: path.resolve(__dirname, 'app'), //基本目录，一个绝对路径，用于从配置中解析入口点和装载器。
+    // context: path.resolve(__dirname, "app"), //基本目录，一个绝对路径，用于从配置中解析入口点和装载器。
 	entry: Object.assign({}, getJsEntry('./app/pages/**/*.js'), {
         common: './app/assets/styles/common.css',
         vendor: ['jquery', 'bootstrap', 'bootstrap/dist/css/bootstrap.css']
     }),
     // entry: {
-    //     index: './app/pages/index/index.js',
-    //     contact: './app/pages/contact/contact.js',
-    //     resume: './app/pages/resume/resume.js',
-    //     photos: './app/pages/photos/photos.js',
+    //     index: './pages/index/index.js',
+    //     contact: './pages/contact/contact.js',
+    //     resume: './pages/resume/resume.js',
+    //     photos: './pages/photos/photos.js',
     //     common: './app/assets/styles/common.css',
     //     vendor: ['jquery', 'bootstrap', 'bootstrap/dist/css/bootstrap.css']
     // },
@@ -75,6 +75,10 @@ module.exports = {
 	},
 	module: {
 		rules: [
+            {
+                test: /\.json5$/,
+                loader: 'json5-loader'
+            },
             {
                 test: /(\.jsx|\.js)$/,
                 exclude: /(node_modules|bower_components)/,
@@ -115,11 +119,10 @@ module.exports = {
                 options: {
                     name: 'assets/images/[name].[hash:8].[ext]',
                     // publicPath: PUBLIC_PATH, 
-                    // 一般不设置，如果使用cdn 沿用output配置里的publicPath就足够了
+                    // 单独设置图片资源的publicPath，其他文件保留output配置里的publicPath
                     // 会覆盖 css里面的 图片的对外路径
                     // 会影响 html里面 img标签的src属性
                     // 会覆盖 output配置里的 publicPath
-                    // 单独设置图片资源的publicPath，其他文件保留output配置里的publicPath
                     limit: 1024 * 3
                 }
             },
@@ -191,3 +194,5 @@ module.exports = {
         })
 	]
 }
+
+

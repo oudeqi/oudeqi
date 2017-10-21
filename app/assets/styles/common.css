@@ -1,6 +1,38 @@
 @import '../../components/footer/footer.css';
 @import '../../components/header/header.css';
+@import '../../components/jumbotron/jumbotron.css';
 
+html, body {
+    height: 100%;
+}
 body{
 	min-width: 320px;
+    /*font-size: 15px !important;*/
+}
+
+.mar-b-20{
+	margin-bottom: 20px;
+}
+
+.mar-b-30{
+	margin-bottom: 30px;
+}
+.font-size-30{
+    font-size: 30px;
+}
+#layout {
+    clear: both;
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin-bottom: -50px;
+    #layout_footer {
+	    height: 50px;
+	}
+}
+
+#footer {
+    clear: both;
+    position: relative;
+    height: 50px;
 }
