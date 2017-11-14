@@ -1,6 +1,7 @@
 // __webpack_public_path__ = process.env.PUBLIC_PATH;
 console.log(process.env.PUBLIC_PATH);
 import './index.css';
+import '../../components/jumbotron/jumbotron.js';
 
 //当前页面选中
 $('[data-flag="index"]').addClass('active');

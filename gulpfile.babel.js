@@ -20,7 +20,7 @@ gulp.task('sprite', ()=> {
 	// DEV: We must buffer our stream into a Buffer for `imagemin`
 	.pipe(buffer())
 	.pipe(imagemin({
-        optimizationLevel: 3,
+        optimizationLevel: 5,
 		progressive: true, 
 		interlaced: true,
 		use: [pngquant()]
@@ -31,6 +31,17 @@ gulp.task('sprite', ()=> {
 	return merge(imgStream, cssStream);
 });
 
+gulp.task('imagemin', ()=> {
+	gulp.src(['app/assets/imagemin/*.*'])
+	.pipe(imagemin({
+        optimizationLevel: 10,
+		progressive: true, 
+		interlaced: true,
+		use: [pngquant()]
+    }))
+    .pipe(gulp.dest('app/assets/images/'));
+})
+
 gulp.task("clean", ()=> {
     return gulp.src(['app/assets/images/sprite.png'], {read: false})
     .pipe(clean());
@@ -40,6 +51,6 @@ gulp.task('default', ['clean'], ()=> {
 	gulp.start('sprite');
 });
 
-gulp.watch('app/assets/sprites/*.*', ['sprite']).on('change', (event)=> {
-	console.log('File ' + event.path + ' was ' + event.type + ',running tasks...[image]');
-});
+// gulp.watch('app/assets/sprites/*.*', ['sprite']).on('change', (event)=> {
+// 	console.log('File ' + event.path + ' was ' + event.type + ',running tasks...[image]');
+// });

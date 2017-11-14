@@ -7,9 +7,10 @@ html, body {
 }
 body{
 	min-width: 320px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     /*font-size: 15px !important;*/
 }
-
 .mar-b-20{
 	margin-bottom: 20px;
 }
