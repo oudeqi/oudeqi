@@ -11,6 +11,19 @@ body{
     -moz-osx-font-smoothing: grayscale;
     /*font-size: 15px !important;*/
 }
+
+.clearfix{
+    &:before,
+    &:after {
+        content: "";
+        display: table;
+    }
+    &:after {
+        clear: both;
+        overflow: hidden;
+    }
+}
+
 .mar-b-20{
 	margin-bottom: 20px;
 }
